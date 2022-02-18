@@ -26,11 +26,12 @@ const UserSchema = new Schema(
         ],
         friends: [
             {
-                
+
             }
         ]
 
     }
 )
 
+const User = model('User', UserSchema);
 module.exports = User;
