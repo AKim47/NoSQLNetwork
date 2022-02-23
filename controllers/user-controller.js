@@ -27,8 +27,8 @@ const userController = {
             .populate({
                 path: 'thoughts',
                 select: '-__v'
-            },
-            {
+            })
+            .populate({
                 path: 'friends',
                 select: '-__v'
             })

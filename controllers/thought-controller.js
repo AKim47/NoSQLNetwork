@@ -38,7 +38,7 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     },
     updateThought({ params, body}, res) {
-        Thought.findOneAndUpdate({ _id: params.id }, body, { new: true })
+        Thought.findOneAndUpdate({ _id: params.thoughtId }, body, { new: true })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
                     res.status(404).json({ message: 'No thought found with this id' });
@@ -71,6 +71,8 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     },
     createReaction({ params, body }, res) {
+        console.log(params);
+        console.log(body);
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $push: { reactions: body} },
